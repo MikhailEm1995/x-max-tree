@@ -1,8 +1,7 @@
-import time
 from neopixel import *
 
 class FrameRenderer:
-    def __init__(self, **canva=[], **strip=None):
+    def __init__(self, canva, strip):
         self.canva = canva
         self.strip = strip
 
