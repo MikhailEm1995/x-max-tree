@@ -16,3 +16,5 @@ for cell in tc:
 ax = pl.gca()
 ax.set_xticks([])
 ax.set_yticks([])
+
+pl.show()
