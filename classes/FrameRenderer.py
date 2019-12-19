@@ -5,6 +5,16 @@ class FrameRenderer:
         self.canva = canva
         self.strip = strip
 
+    def render(self, frame_mtx):
+        frame = self.get_frame(frame_mtx)
+        
+        for row in frame:
+            for cell in row:
+                for address, color in cell:
+                    self.strip.setPixelColor(address, color)
+        
+        self.strip.show()
+
     def get_frame(self, frame_mtx):
         return [
             [
@@ -16,11 +26,3 @@ class FrameRenderer:
                 ] for cell_idx, cell in enumerate(row)
             ] for row_idx, row in enumerate(self.canva)
         ]
-
-    def render(self, frame):
-        for row in frame:
-            for cell in row:
-                for address, color in cell:
-                    self.strip.setPixelColor(address, color)
-        
-        self.strip.show()
