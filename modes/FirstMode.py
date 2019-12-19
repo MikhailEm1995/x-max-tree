@@ -27,6 +27,8 @@ array2 = [
     [(), (), (), (), (), (), (), (), ()],
 ]
 
-cv.draw(array)
+canvas = cv.Canvas()
+canvas.draw(array)
 time.sleep(1)
-cv.draw(array2)
+canvas.draw(array2)
+canvas.window.getMouse()
