@@ -19,7 +19,7 @@ class Canvas:
                     current_point = Point(current_point.x + width, current_point.y)
                     continue
                 rect = Rectangle(current_point, Point(current_point.x + width, current_point.y + height))
-                rect.setFill(color_rgb(30, 30, 30))
+                rect.setFill(color_rgb(xItem[0], xItem[1], xItem[2]))
                 rect.draw(self.window)
                 current_point = Point(current_point.x + width, current_point.y)
             current_point = Point(start_point.x, current_point.y + height)
