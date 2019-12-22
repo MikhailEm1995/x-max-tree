@@ -23,7 +23,7 @@ array = [
 canvas = cv.Canvas()
 color_from = (0, 0, 255)
 color_to = (255, 0, 0)
-color_current = Color.get_color(color_from, color_to, 10)
+color_current = Color.animate_color(color_from, color_to, 10)
 
 while True:
     color = next(color_current)
