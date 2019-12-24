@@ -1,21 +1,27 @@
 import services.Color as Color
 import time
 
+# Signature
+# def mode(config):
+# config.matrix_height = number
+# config.matrix_width = number
+# config.current_coords = [float, float]
+# config.current_color = (number, number, number)
+# config.play_sound = def func(local_sound_filename):
 
-def idle(array):
+
+def idle(config):
     color_from = (0, 0, 255)
     color_to = (255, 0, 0)
     color_current = Color.animate_color(color_from, color_to, 10)
 
     while True:
+        array = []
         color = next(color_current)
 
-        for yItem in array:
-            for xItem in yItem:
-                if xItem is None:
-                    continue
-                xItem[0] = color[0]
-                xItem[1] = color[1]
-                xItem[2] = color[2]
-        time.sleep(0.1)
+        for y in range(config["matrix_height"]):
+            array.append([])
+            for x in range(config["matrix_width"]):
+                array[y].append(color)
+        time.sleep(0.3)
         yield array
