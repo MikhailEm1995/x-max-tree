@@ -13,7 +13,7 @@ import time
 def idle(config):
     color_from = (0, 0, 255)
     color_to = (255, 0, 0)
-    color_current = Color.animate_color(color_from, color_to, 10)
+    color_current = Color.animate_color(color_from, color_to, 60)
 
     while True:
         array = []
@@ -23,5 +23,5 @@ def idle(config):
             array.append([])
             for x in range(config["matrix_width"]):
                 array[y].append(color)
-        time.sleep(0.3)
+        time.sleep(0.1)
         yield array
