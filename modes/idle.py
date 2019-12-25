@@ -12,7 +12,7 @@ import time
 # config.play_sound = def func(local_sound_filename):
 
 def idle(config):
-    mode = random_mode(config)
+    mode = gradient_mode(config)
 
     while True:
         yield next(mode)
@@ -48,5 +48,22 @@ def random_mode(config):
             for x in range(config["matrix_width"]):
                 color = (random.randrange(0, 255, 1), random.randrange(0, 255, 1), random.randrange(0, 255, 1))
                 array[y].append(color)
+        time.sleep(0.1)
+        yield array
+
+
+def gradient_mode(config):
+    color_from = (0, 255, 30)
+    color_to = (0, 80, 20)
+
+    while True:
+        array = []
+        color_generator = Color.animate_color(color_from, color_to, 18)
+
+        for y in range(config["matrix_height"]):
+            current_color = next(color_generator)
+            array.append([])
+            for x in range(config["matrix_width"]):
+                array[y].append(current_color)
         time.sleep(0.1)
         yield array
