@@ -1,6 +1,7 @@
 import services.Color as Color
 import time
 
+
 # Signature
 # def mode(config):
 # config.matrix_height = number
@@ -11,9 +12,13 @@ import time
 
 
 def idle(config):
-    color_from = (0, 0, 255)
-    color_to = (255, 0, 0)
-    color_current = Color.animate_color(color_from, color_to, 60)
+    color_current = Color.animate_array_colors([
+        (0, 57, 56),  # dark green
+        (0, 134, 91),  # light green
+        (90, 193, 59),  # green
+        (255, 255, 47),  # yellow
+        (235, 41, 15),  # red
+    ])
 
     while True:
         array = []
