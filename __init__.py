@@ -3,6 +3,7 @@ from .AppConfig import AppConfig
 from .classes.Signals import Signals
 from .classes.ModeRunner import ModeRunner
 from .classes.FrameRenderer import FrameRenderer
+from .modes.DrawMode import startDrawMode
 
 if __name__ == "__init__":
     strip = Adafruit_NeoPixel(
@@ -18,7 +19,8 @@ if __name__ == "__init__":
 
     signals = Signals(AppConfig)
     renderer = FrameRenderer(AppConfig.canvas, strip)
-    
+    startDrawMode(AppConfig, signals)
+
     buttons_watcher = threading.Thread(target=signals.setup_watch_mode_change)
     buttons_watcher.start()
 

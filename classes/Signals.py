@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import math
 
 class Signals:
     coords = []
@@ -32,8 +33,9 @@ class Signals:
 
         return set_mode
 
-    def setup_watch_motion_coords(self):
+    def setup_watch_motion_coords(self, point):
         # to be implemented
-        return None
-
-    
+        camera = self.config.camera
+        canvas_width = len(self.config.canvas[0])
+        canvas_height = len(self.config.canvas)
+        return math.floor(point[0] * canvas_width / camera['width']), math.floor(point[1] * canvas_height / camera['height'])

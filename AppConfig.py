@@ -1,6 +1,8 @@
 class AppConfig:
     current_mode = "idle"
 
+    current_paint_color = (255, 0, 0)
+
     modes = {
         "idle": None,
         "piano": None,
@@ -20,6 +22,11 @@ class AppConfig:
     strip_brightness = 255
     strip_invert = False
     strip_channel = 0
+
+    camera = {
+        'width': 640,
+        'height': 320,
+    }
 
     canvas = [
         [(), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), ()],
