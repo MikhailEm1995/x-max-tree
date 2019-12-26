@@ -1,4 +1,4 @@
-from modes.flowMode import flow_mode
+from modes.fireworksMode import fireworks_mode
 
 # Signature
 # def mode(config):
@@ -10,7 +10,7 @@ from modes.flowMode import flow_mode
 
 
 def idle(config):
-    mode = flow_mode(config)
+    mode = fireworks_mode(config)
 
     while True:
         yield next(mode)
